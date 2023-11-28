@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const path = require('path');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
@@ -15,7 +14,7 @@ module.exports = () => {
 
     // TODO: Add the correct output
     output: {
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true
     },
@@ -32,8 +31,8 @@ module.exports = () => {
         name: 'Contact Directory',
         short_name: 'Contacter',
         description: 'Literally anything',
-        background_color: '7eb4e2',
-        theme_color: '7eb4e2',
+        background_color: '#7eb4e2',
+        theme_color: '#7eb4e2',
         start_url: './',
         publicPath: './',
         icons: [
