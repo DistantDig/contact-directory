@@ -31,7 +31,16 @@ export const postDb = async (name, home, cell, email)  => {
 
 // TODO: Complete the getDb() function below:
 export const getDb = async () => {
-  
+  console.log('Get from the database');
+
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readonly');
+  const store = tx.objectStore('jate');
+  const request = store.getAll();
+
+  const result = await request;
+  console.log('Results from the database', result);
+  return result;
 };
 
 // TODO: Complete the deleteDb() function below:
