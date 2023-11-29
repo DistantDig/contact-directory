@@ -18,7 +18,15 @@ const initdb = async () => {
 
 // TODO: Complete the postDb() function below:
 export const postDb = async (name, home, cell, email)  => {
+ console.log('Post to the database');
  
+ const jateDb = await openDB('jate', 1);
+ const tx = jateDb.transaction('jate', 'readwrite');
+ const store = tx.objectStore('jate');
+ const request = store.add({ content });
+
+ const result = await request;
+ console.log('Data saved to the database', result);
 };
 
 // TODO: Complete the getDb() function below:
